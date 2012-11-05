@@ -11,9 +11,9 @@ public class NumberGuesserService {
 
   private int number;
   private int guessNumber;
-  private String win = "You Win!  You guess my number!";
-  private String lose = "You lost!  My number is " + number;
-  private String message;
+  private String win = "You Win!  You guessed my number!";
+  private String lose = "You lost!  My number is ";
+  private String message = "";
 
     public NumberGuesserService(int guessNumber) {
         // validation required
@@ -34,12 +34,13 @@ public class NumberGuesserService {
         number = random.nextInt(21);
         this.number = number;
     }
+    
     public void checkNumbers() {
         // validation required
         if (this.getNumber() == guessNumber){
-            message.equals(win);
+            message = message + win;
         } else {
-            message.equals(lose);
+            message = message + lose + this.getNumber();
         }
     }
     
@@ -49,10 +50,6 @@ public class NumberGuesserService {
 
     public String getMessage() {
         return message;
-    }
-  
-  
-  
-  
+    }  
     
 }
